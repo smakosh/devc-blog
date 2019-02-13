@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
@@ -12,9 +13,14 @@ export default ({
 }) => (
   <Layout>
     <h1>{title}</h1>
-    <div dangerouslySetInnerHTML={{ __html: html }} />
+    <Wrapper dangerouslySetInnerHTML={{ __html: html }} />
   </Layout>
 )
+
+const Wrapper = styled.div`
+  padding: 2rem;
+  box-shadow: 1px 0 10px 0 rgba(0, 0, 0, 0.4);
+`
 
 export const postQuery = graphql`
   query($slug: String!) {
